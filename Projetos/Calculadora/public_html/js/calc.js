@@ -1,14 +1,22 @@
 /* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/javascript.js to edit this template
+ * Calculadora com Relógio em JavaScript
  */
 
-// barra  barra é utilizado para criar um comentário de uma linha
+window.alert('Bem-vindo à calculadora feita em JavaScript!');
 
-// função para exibir uma janela de aviso.
+function atualizaHora() {
+    // Obtém a hora atual como string
+    let hora = new Date().toTimeString();
+    let partes = hora.split(" ");
+    document.getElementById("relogio").innerHTML = partes[0];
+    
+    // Outro jeito mais direto
+    // let hora = new Date().toTimeString().split(" ")[0]; // Pega apenas a parte da hora (HH:MM:SS)
+    // document.getElementById("relogio").innerHTML = hora;
+}
 
-window.alert('Bem-vindo a calculadora feito em javascript!');
+// Executa a função a cada 1 segundo (1000ms)
+let aux = setInterval(atualizaHora, 1000);
 
-let hora = new Date();
-
-document.getElementById("relogio").innerHTML = hora;
+// Para cancelar o intervalo, utilize:
+// clearInterval(aux);
