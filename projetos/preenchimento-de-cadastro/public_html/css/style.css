@@ -1,0 +1,162 @@
+/* Estilo geral do corpo */
+body {
+    font-family: 'SF Pro Display', 'Arial', sans-serif;
+    background-color: #f5f5f7;
+    margin: 0;
+    padding: 40px 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container principal */
+.form-container {
+    background-color: #ffffff;
+    padding: 32px 16px; /* Reduzido o padding lateral de 32px para 16px */
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 24px;
+}
+
+/* Título principal */
+#title {
+    font-size: 28px; /* Aumentado de 24px para 28px */
+    font-weight: 600;
+    color: #1d1d1f;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* Estilo dos formulários */
+form {
+    width: 100%;
+}
+
+/* Agrupamento de campos */
+fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+/* Legenda do fieldset */
+legend {
+    font-size: 20px; /* Aumentado de 18px para 20px */
+    font-weight: 500;
+    color: #1d1d1f;
+    margin-bottom: 16px;
+}
+
+/* Container dos campos */
+div {
+    margin-bottom: 20px;
+}
+
+/* Estilo das labels */
+label {
+    font-size: 16px; /* Aumentado de 14px para 16px */
+    font-weight: 500;
+    color: #1d1d1f;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Estilo dos inputs */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    font-size: 18px; /* Aumentado de 16px para 18px */
+    color: #1d1d1f;
+    background-color: #fafafc;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+/* Foco nos inputs */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+    border-color: #0071e3;
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Mensagens de erro */
+span {
+    color: #ff3b30;
+    font-size: 14px; /* Aumentado de 12px para 14px */
+    margin-top: 4px;
+    display: block;
+}
+
+/* Estilo do botão */
+#btnValidar {
+    width: 100%;
+    padding: 12px;
+    background-color: #0071e3;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px; /* Aumentado de 16px para 18px */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover no botão */
+#btnValidar:hover {
+    background-color: #005bb5;
+}
+
+/* Botão desativado */
+#btnValidar:disabled {
+    background-color: #e0e0e0;
+    color: #86868b;
+    cursor: not-allowed;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    .form-container {
+        padding: 24px 12px; /* Reduzido o padding lateral de 24px para 12px */
+        max-width: 100%;
+    }
+
+    #title {
+        font-size: 24px; /* Ajustado para 24px em telas menores */
+    }
+
+    #btnValidar {
+        font-size: 16px; /* Ajustado para 16px em telas menores */
+    }
+
+    label {
+        font-size: 14px; /* Ajustado para 14px em telas menores */
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"] {
+        font-size: 16px; /* Ajustado para 16px em telas menores */
+    }
+
+    legend {
+        font-size: 18px; /* Ajustado para 18px em telas menores */
+    }
+
+    span {
+        font-size: 12px; /* Ajustado para 12px em telas menores */
+    }
+}

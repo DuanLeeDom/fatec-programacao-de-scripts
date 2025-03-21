@@ -25,6 +25,7 @@ let bigual = document.getElementById("bigual");
 let auxiliar = document.getElementById("auxiliar");
 let operador = document.getElementById("operador");
 let mostrador = document.getElementById("mostrador");
+let ponto = document.getElementById("bp");
 
 // Variáveis para armazenar os números e o operador
 let primeiroNumero = null;
@@ -85,6 +86,21 @@ function calcular() {
     }
 }
 
+function inserePonto() {
+    // verificar se o ponto existe no mostrador
+    let posicao = mostrador.value.indexOf(".");
+    if (posicao != -1) { // significa que ele achou um ponto no número
+        return ;
+    }
+    // verificar se o mostrador está vazio
+    let tamanho = mostrador.value.length;
+    if (tamanho == 0) {
+        mostrador.value = "0.";
+    } else {
+        mostrador.value = mostrador.value + ".";
+    }
+}
+
 // Eventos para os botões numéricos
 b0.addEventListener("click", function() { numero(this); });
 b1.addEventListener("click", function() { numero(this); });
@@ -105,6 +121,9 @@ bdiv.addEventListener("click", function() { definirOperador(this); });
 
 // Evento para o botão de igual
 bigual.addEventListener("click", calcular);
+
+//
+ponto.addEventListener("click", function () { inserePonto(); });
 
 // Inicia o relógio
 let aux = setInterval(atualizaHora, 1000);
