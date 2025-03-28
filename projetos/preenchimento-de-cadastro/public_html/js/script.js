@@ -1,57 +1,98 @@
 window.onload = function () {
+    // Acessar o formulário
+    const form = document.getElementById("meuFormulario");
+
     // Acessar os elementos do HTML
-    let Nome = document.getElementById("txtNome");
-    let EstadoCivil = document.getElementById("txtEstadoCivil");
-    let DatadeNascimento = document.getElementById("txtDatadeNascimento");
-    let Altura = document.getElementById("txtAltura");
-    let Peso = document.getElementById("txtPeso");
-    let Logradouro = document.getElementById("txtLogradouro");
-    let Numero = document.getElementById("txtNumero");
-    let Bairro = document.getElementById("txtBairro");
-    let Cidade = document.getElementById("txtCidade");
-    let Estado = document.getElementById("txtEstado");
-    let Cep = document.getElementById("txtCep");
+    const campos = {
+        Nome: document.getElementById("txtNome"),
+        EstadoCivil: document.getElementById("txtEstadoCivil"),
+        DatadeNascimento: document.getElementById("txtDatadeNascimento"),
+        Altura: document.getElementById("txtAltura"),
+        Peso: document.getElementById("txtPeso"),
+        Logradouro: document.getElementById("txtLogradouro"),
+        Numero: document.getElementById("txtNumero"),
+        Bairro: document.getElementById("txtBairro"),
+        Cidade: document.getElementById("txtCidade"),
+        Estado: document.getElementById("txtEstado"),
+        Cep: document.getElementById("txtCep")
+    };
 
     // Elementos para exibir mensagens de erro
-    let er_Nome = document.getElementById("errNome");
-    let er_EstadoCivil = document.getElementById("errEstadoCivil");
-    let er_DatadeNascimento = document.getElementById("errDatadeNascimento");
-    let er_Altura = document.getElementById("errAltura");
-    let er_Peso = document.getElementById("errPeso");
-    let er_Logradouro = document.getElementById("errLogradouro");
-    let er_Numero = document.getElementById("errNumero");
-    let er_Bairro = document.getElementById("errBairro");
-    let er_Cidade = document.getElementById("errCidade");
-    let er_Estado = document.getElementById("errEstado");
-    let er_Cep = document.getElementById("errCep");
+    const erros = {
+        Nome: document.getElementById("errNome"),
+        EstadoCivil: document.getElementById("errEstadoCivil"),
+        DatadeNascimento: document.getElementById("errDatadeNascimento"),
+        Altura: document.getElementById("errAltura"),
+        Peso: document.getElementById("errPeso"),
+        Logradouro: document.getElementById("errLogradouro"),
+        Numero: document.getElementById("errNumero"),
+        Bairro: document.getElementById("errBairro"),
+        Cidade: document.getElementById("errCidade"),
+        Estado: document.getElementById("errEstado"),
+        Cep: document.getElementById("errCep")
+    };
 
-    // Acessar o botão de validar
-    let btnValidar = document.getElementById("btnValidar");
-
-    // Atribuir a rotina ao botão
-    btnValidar.addEventListener("click", avaliar);
-
-    // Função a rotina ao botão
-    function validarCampo(campo, erCampo, minLength) {
-        if (campo.value.length >= minLength) {
-            erCampo.innerHTML = "";
-        } else {
-            erCampo.innerHTML = `O campo precisa ser preenchido pelo menos ${minLength} caracteres`;
+    // Função para validar campo de texto
+    function validarCampoTexto(campo, erro, minLength, nomeCampo) {
+        const valor = campo.value.trim();
+        if (valor.length === 0) {
+            erro.innerHTML = `${nomeCampo} é obrigatório`;
+            return false;
+        } else if (valor.length < minLength) {
+            erro.innerHTML = `${nomeCampo} deve ter pelo menos ${minLength} caracteres`;
+            return false;
         }
+        erro.innerHTML = "";
+        return true;
     }
 
-    // Função para avaliar os campos
-    function avaliar() {
-        validarCampo(Nome, er_Nome, 2);
-        validarCampo(EstadoCivil, er_EstadoCivil, 2);
-        validarCampo(DatadeNascimento, er_DatadeNascimento, 2);
-        validarCampo(Altura, er_Altura, 2);
-        validarCampo(Peso, er_Peso, 2);
-        validarCampo(Logradouro, er_Logradouro, 2);
-        validarCampo(Numero, er_Numero, 2);
-        validarCampo(Bairro, er_Bairro, 2);
-        validarCampo(Cidade, er_Cidade, 2);
-        validarCampo(Estado, er_Estado, 2);
-        validarCampo(Cep, er_Cep, 2);
+    // Função para validar campo numérico
+    function validarCampoNumerico(campo, erro, nomeCampo) {
+        const valor = campo.value.trim();
+        if (valor === "") {
+            erro.innerHTML = `${nomeCampo} é obrigatório`;
+            return false;
+        } else if (isNaN(valor) || Number(valor) <= 0) {
+            erro.innerHTML = `${nomeCampo} deve ser um número positivo`;
+            return false;
+        }
+        erro.innerHTML = "";
+        return true;
     }
+
+    // Função para validar data
+    function validarData(campo, erro, nomeCampo) {
+        const valor = campo.value;
+        if (!valor) {
+            erro.innerHTML = `${nomeCampo} é obrigatória`;
+            return false;
+        }
+        erro.innerHTML = "";
+        return true;
+    }
+
+    // Evento de submissão do formulário
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Impede o envio padrão
+
+        // Validar todos os campos
+        let valido = true;
+
+        valido &= validarCampoTexto(campos.Nome, erros.Nome, 2, "Nome");
+        valido &= validarCampoTexto(campos.EstadoCivil, erros.EstadoCivil, 2, "Estado Civil");
+        valido &= validarData(campos.DatadeNascimento, erros.DatadeNascimento, "Data de Nascimento");
+        valido &= validarCampoNumerico(campos.Altura, erros.Altura, "Altura");
+        valido &= validarCampoNumerico(campos.Peso, erros.Peso, "Peso");
+        valido &= validarCampoTexto(campos.Logradouro, erros.Logradouro, 2, "Logradouro");
+        valido &= validarCampoNumerico(campos.Numero, erros.Numero, "Número");
+        valido &= validarCampoTexto(campos.Bairro, erros.Bairro, 2, "Bairro");
+        valido &= validarCampoTexto(campos.Cidade, erros.Cidade, 2, "Cidade");
+        valido &= validarCampoTexto(campos.Estado, erros.Estado, 2, "Estado");
+        valido &= validarCampoTexto(campos.Cep, erros.Cep, 8, "CEP");
+
+        // Se todos os campos forem válidos, redireciona
+        if (valido) {
+            window.location.href = "pagina2.html";
+        }
+    });
 };
