@@ -1,28 +1,53 @@
 <!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
 <html>
     <head>
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/script.js" defer></script>
     </head>
     <body>
-        <div class="jogo">
-            <h1>Jogo da velha</h1>
-            <div class="tabuleiro" id="tabuleiro">
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
-                <div class="celula" data-celula></div>
+        <div>Jogo da Velha</div>
+        <div id="Mensagem">Mensagem: Quais são os nomes dos Jogadores?</div>
+        <form action="#">
+            <div>
+                <label for="jogadorX">Jogador X: </label>
+                <input type="text" id="jogadorX" class="jogador" placeholder="Nome do Jogador X" value="">
+                <label id="nomeX"></label>
             </div>
-            <p id="status"></p>
-            <button id="reiniciar">Reiniciar</button>
-        </div>
+            <div>
+                <label for="jogadorO">Jogador O: </label>
+                <input type="text" id="jogadorO" class="jogador" placeholder="Nome do Jogador O" value="">
+                <label id="nomeO"></label>
+            </div>
+            <input type="button" value="Jogar" id="jogar">
+        </form>
+        <form>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td><input type="button" id="A1" disabled class="escolha"></td>
+                        <td><input type="button" id="A2" disabled class="escolha"></td>
+                        <td><input type="button" id="A3" disabled class="escolha"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="B1" disabled class="escolha"></td>
+                        <td><input type="button" id="B2" disabled class="escolha"></td>
+                        <td><input type="button" id="B3" disabled class="escolha"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="C1" disabled class="escolha"></td>
+                        <td><input type="button" id="C2" disabled class="escolha"></td>
+                        <td><input type="button" id="C3" disabled class="escolha"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
     </body>
 </html>
