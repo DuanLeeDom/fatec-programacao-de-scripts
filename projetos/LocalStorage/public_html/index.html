@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projeto base para LocalStorage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/armazena.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <div>Cadastro de cores</div>
+        <form action="#">
+            <div>
+                <label>Nome da cor:</label>
+                <input type="text" id="nome_cor">
+            </div>
+            <div>
+                <label>Código da cor:</label>
+                <input type="color" id="cod_cor">
+            </div>
+        </form>
+        <div>
+            <input type="button" value="Salvar" id="botao">
+        </div>
+        <div>
+            <table id="cores">
+                <tr>
+                    <th>Nome da Cor</th>
+                    <th>Código da Cor</th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
