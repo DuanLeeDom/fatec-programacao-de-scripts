@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>ListaEmails</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <script defer src="js/index.js"></script>
+        <script src="js/logica.js"></script>
+        <script src="js/localStorage.js" ></script>
+    </head>
+    <body>
+        <div>Meus Contatos com e-mail</div>
+        <form action="#">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="text" id="email">
+            </div>
+            <input type="button" value="Salvar" id="botao">
+        </form>
+        <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
